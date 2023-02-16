@@ -28,8 +28,6 @@ module.exports = {
   },
   Mutation: {
     async login(_: any, { creds }: { creds: UserProps }, req) {
-      const { source } = checkAuth(req);
-
       console.log(`Login request recieved from ${creds.email}`);
 
       const { errors, valid } = validateAuthInput(creds);
@@ -84,7 +82,6 @@ module.exports = {
       const hash = await bcrypt
         .genSalt(saltRounds)
         .then((salt) => {
-          console.log("Salt: ", salt);
           return bcrypt.hash(creds.password, salt);
         })
         .catch((err) => console.error(err.message));
@@ -103,7 +100,7 @@ module.exports = {
 
       const newUser = new User({
         ...creds,
-        password: hash,
+        password: hash.toString(),
         lastLogin: new Date().toISOString(),
       });
 

@@ -6,7 +6,20 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     min: 3,
+    max: 100,
+  },
+  email: {
+    type: String,
+    min: 3,
     max: 255,
+  },
+  password: {
+    type: String,
+    min: 3,
+    max: 255,
+  },
+  lastLogin: {
+    type: String,
   },
 });
 
