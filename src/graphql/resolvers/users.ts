@@ -54,7 +54,10 @@ module.exports = {
         });
       }
 
-      const token = generateToken(creds);
+      const token = generateToken({
+        ...user_._doc,
+        id: user_._id,
+      });
 
       await User.updateOne(
         { _id: user_._id },
@@ -108,7 +111,10 @@ module.exports = {
 
       console.log(`User ${res._id} registered.`);
 
-      const token = generateToken(res);
+      const token = generateToken({
+        ...res._doc,
+        id: res._id,
+      });
 
       return {
         ...res._doc,

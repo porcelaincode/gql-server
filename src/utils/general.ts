@@ -37,7 +37,7 @@ function generateToken(user: UserProps) {
     {
       id: user.id,
       name: user.name,
-      contact: user.email,
+      email: user.email,
     },
     process.env.TOKEN_SECRET,
     { expiresIn: "7d" }

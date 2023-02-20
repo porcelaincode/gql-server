@@ -5,9 +5,10 @@ const validateAuthInput = (user: UserProps) => {
 
   if (user.email.toString().trim() === "") {
     errors.email = "Email must not be empty";
-  } else
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email) === false;
-  {
+  }
+  if (
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email) === false
+  ) {
     errors.email = "Email provided is not in proper format";
   }
 

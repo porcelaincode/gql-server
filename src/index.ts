@@ -24,12 +24,12 @@ const PORT: any = process.env.PORT || 5000;
 const DATABASE: string =
   process.env.MONGODB_CONNECTION_STRING || "mongosrv:\\localhost:27017";
 
-// Create an Express app and HTTP server; we will attach both the WebSocket
 // server and the ApolloServer to this HTTP server.
 export async function startApolloServer() {
   const app = express();
 
   app.use(cors());
+
   app.use(
     helmet({
       contentSecurityPolicy:
