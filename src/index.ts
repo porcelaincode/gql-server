@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
-
+const { InMemoryLRUCache } = require("@apollo/utils.keyvaluecache");
 const { ApolloServer } = require("apollo-server-express");
 const { createServer } = require("http");
 const {
@@ -44,7 +44,7 @@ export async function startApolloServer() {
   // Set up ApolloServer.
   const server = new ApolloServer({
     schema,
-
+    cache: new InMemoryLRUCache(),
     context: ({ req }: any) => ({ req }),
     plugins: [
       // Proper shutdown for the HTTP server.

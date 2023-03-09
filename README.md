@@ -29,3 +29,22 @@ NODE_ENV=
 TOKEN_SECRET=
 MONGODB_CONNECTION_STRING=
 ```
+
+## Steps to replicate deployment
+
+1. Clone the github repo
+
+   `git clone https://github.com/porcelaincode/gql-server`
+
+2. Install npm packages
+
+   `npm install`
+
+3. Configure `.env` file as mentioned above
+
+4. Run development server
+
+   `npm start`
+
+5. Test endpoint at https://studio.apollographql.com/ by using url
+   `http://localhost:5000/graphql`
