@@ -46,5 +46,5 @@ MONGODB_CONNECTION_STRING=
 
    `npm start`
 
-5. Test endpoint at https://studio.apollographql.com/ by using url
+5. Test endpoint at [https://studio.apollographql.com](https://studio.apollographql.com/sandbox/explorer) by using url
    `http://localhost:5000/graphql`
